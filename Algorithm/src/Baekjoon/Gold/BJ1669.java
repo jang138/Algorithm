@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 
 /*
  * https://www.acmicpc.net/problem/1669
+ * 골드5 멍멍이 쓰다듬기
  */
 
 public class BJ1669 {
