@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
  * 골드5 멍멍이 쓰다듬기
  */
 
-public class BJ1669 {
+public class BJ1669_멍멍이쓰다듬기 {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

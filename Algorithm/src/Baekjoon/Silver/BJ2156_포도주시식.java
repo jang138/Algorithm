@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
  * 실버1 포도주 시식
  */
 
-public class BJ2156 {
+public class BJ2156_포도주시식 {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
