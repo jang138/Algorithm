@@ -8,7 +8,7 @@ package Baekjoon.Gold;
 public class BJ14497_주난의난 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 
 	}
 
