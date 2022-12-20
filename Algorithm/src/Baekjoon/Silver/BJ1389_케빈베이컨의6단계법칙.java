@@ -1,7 +1,6 @@
 package Baekjoon.Silver;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
@@ -14,7 +13,7 @@ public class BJ1389_케빈베이컨의6단계법칙 {
 
 	static int N, M, road[][];
 	 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		N = Integer.parseInt(st.nextToken()); // 유저수
