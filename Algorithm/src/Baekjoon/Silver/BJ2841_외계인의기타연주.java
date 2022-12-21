@@ -1,10 +1,14 @@
 package Baekjoon.Silver;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Stack;
 import java.util.StringTokenizer;
+
+/*
+ * https://www.acmicpc.net/problem/2841
+ * 실버1 외계인의 기타 연주
+ */
 
 public class BJ2841_외계인의기타연주 {
 	
@@ -60,7 +64,6 @@ public class BJ2841_외계인의기타연주 {
 		
 		System.out.println(count);
 		
-
 	}
 
 }
