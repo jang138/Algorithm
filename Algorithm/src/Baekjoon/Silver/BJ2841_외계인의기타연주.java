@@ -27,11 +27,38 @@ public class BJ2841_외계인의기타연주 {
 		for (int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine());
 			
-			int a = Integer.parseInt(st.nextToken());
-			int b = Integer.parseInt(st.nextToken());
+			int l = Integer.parseInt(st.nextToken()); // 줄
+			int f = Integer.parseInt(st.nextToken()); // 프렛
 			
+			// 프렛을 누를 때 : 비어있거나 더 작은 프렛을 누르고 있는지 확인
+			if(line[l].isEmpty() || line[l].peek() < f ) {
+				// 이미 해당 음을 누르고 있는 경우
+				if(!line[l].isEmpty() && line[l].peek() == f) {
+					continue;
+				}
+				line[l].push(f);
+				count++;
+				
+				continue;
+			}
+			
+			// 프렛을 뗄 때 : (누르고 있는 상태니까 계속 체크)
+			while(!line[l].isEmpty() && line[l].peek() > f ) {
+				line[l].pop();
+				count++;
+			}
+			
+			// 이미 해당 음을 누르고 있는 경우
+			if(!line[l].isEmpty() && line[l].peek() == f) {
+				continue;
+			}
+			
+			line[l].push(f);
+			count++;
 			
 		}
+		
+		System.out.println(count);
 		
 
 	}
