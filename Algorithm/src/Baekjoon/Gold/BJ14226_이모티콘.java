@@ -1,5 +1,7 @@
 package Baekjoon.Gold;
 
+import java.util.Scanner;
+
 /*
  * https://www.acmicpc.net/problem/14226
  * 골드4 이모티콘
@@ -8,7 +10,7 @@ package Baekjoon.Gold;
 public class BJ14226_이모티콘 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
 
 	}
 
