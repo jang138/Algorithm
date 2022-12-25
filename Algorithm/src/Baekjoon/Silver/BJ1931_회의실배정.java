@@ -8,7 +8,7 @@ package Baekjoon.Silver;
 public class BJ1931_회의실배정 {
 
 	public static void main(String[] args) {
-		
+		//
 
 	}
 
