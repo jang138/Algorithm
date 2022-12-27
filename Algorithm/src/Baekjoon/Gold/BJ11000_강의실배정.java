@@ -25,6 +25,7 @@ public class BJ11000_강의실배정 {
 			arr[i][1] = Integer.parseInt(st.nextToken());
 		}
 		
+		// 정렬
 		Arrays.sort(arr, (o1, o2) -> {
 			if(o1[0] == o2[0]) {
 				return o1[1] - o2[1];
@@ -35,10 +36,13 @@ public class BJ11000_강의실배정 {
 		PriorityQueue<Integer> pq = new PriorityQueue<>();
 		pq.add(arr[0][1]);
 		
+		
 		for (int i = 1; i < N; i++) {
+			// 같거나 크면 삭제하고 추가 (강의실 시간 연장)
 			if(pq.peek() <= arr[i][0]) {
 				pq.poll();
 			}
+			// 추가 (강의실 +1)
 			pq.add(arr[i][1]);
 		}
 		

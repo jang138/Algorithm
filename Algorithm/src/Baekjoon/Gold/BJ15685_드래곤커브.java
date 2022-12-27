@@ -37,7 +37,7 @@ public class BJ15685_드래곤커브 {
 			int y = Integer.parseInt(st.nextToken());
 			int d = Integer.parseInt(st.nextToken());
 			int g = Integer.parseInt(st.nextToken());
-			dragon(y, x, d, g);
+			dragon(x, y, d, g);
 		}
 		
 		for (int i = 0; i < 100; i++) {
