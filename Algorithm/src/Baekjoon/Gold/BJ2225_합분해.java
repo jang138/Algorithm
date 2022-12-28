@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
  * 골드5 합분해
  */
 
+
 public class BJ2225_합분해 {
 
 	static long dp[][] = new long[201][201];

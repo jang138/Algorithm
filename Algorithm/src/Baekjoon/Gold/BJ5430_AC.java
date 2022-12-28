@@ -26,6 +26,8 @@ public class BJ5430_AC {
 				System.out.println(Integer.parseInt(st.nextToken()));
 			}
 		}
+		
+		for
 	}
 	
 
