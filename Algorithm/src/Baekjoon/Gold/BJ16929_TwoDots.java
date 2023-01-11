@@ -29,10 +29,10 @@ public class BJ16929_TwoDots {
 
 		check = new boolean[N][M];
 		String ans = "No";
+		
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
 				boolean cycle = false;
-
 				// 방문하지 않은 경우 탐색
 				if (!check[i][j]) {
 					cycle = dfs(-1, -1, i, j, arr[i][j]);
@@ -40,6 +40,7 @@ public class BJ16929_TwoDots {
 				// 사이클 발견
 				if (cycle) {
 					ans = "Yes";
+					break;
 				}
 			}
 		}
@@ -60,7 +61,7 @@ public class BJ16929_TwoDots {
 				// 이전 위치인지  && 같은 점인지
 				if ((!(nx == prex && ny == prey)) && arr[nx][ny] == dot) {
 					if (dfs(x, y, nx, ny, dot)) {
-						return true;
+						return true; // 전에 방문한 노드라면 싸이클 완성
 					}
 				}
 			}
