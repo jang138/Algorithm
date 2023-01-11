@@ -11,9 +11,9 @@ import java.io.InputStreamReader;
 public class BJ1976_여행가자 {
 
 	public static void main(String[] args) throws Exception {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        N = Integer.parseInt(br.readLine());
-        M = Integer.parseInt(br.readLine());
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        N = Integer.parseInt(br.readLine());
+//        M = Integer.parseInt(br.readLine());
 
 	}
 
