@@ -20,7 +20,7 @@ public class BJ19644_좀비떼가기관총진지에도오다니 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 
-		L = Integer.parseInt(br.readLine()); // 크기
+		L = Integer.parseInt(br.readLine()); // 거리 길이
 		st = new StringTokenizer(br.readLine());
 		ML = Integer.parseInt(st.nextToken()); // 기관총 유효 사거리
 		MK = Integer.parseInt(st.nextToken()); // 기관총 피해량
@@ -31,85 +31,98 @@ public class BJ19644_좀비떼가기관총진지에도오다니 {
 			Zombie[i] = Integer.parseInt(br.readLine());
 		}
 
-		Deque<Integer> q = new LinkedList<>();
+		Deque<Integer> dq = new LinkedList<>();
+		// 큐 안에 살아있는 좀비 카운트
 		int count = 0;
-		boolean ans = true;
+		boolean answer = true;
 
+
+		// 기관총 범위 큐 채움
 		for (int i = 0; i < Math.min(L, ML); i++) {
-			if (q.size() == 0) {
-				if (Zombie[0] - MK <= 0) {
-					q.offer(0);
+			if (dq.size() == 0) {
+				// 좀비 처치
+				if (Zombie[0] <= MK) {
+					dq.offer(0);
 				} else {
-					q.offer(Zombie[0]);
+					dq.offer(Zombie[0]);
+					// 큐에 살아있는 좀비가 저장된 경우 카운트
 					count += 1;
 				}
 			} else {
+				// 살아있는 좀비가 없는 경우
 				if (count == 0) {
-					if (Zombie[i] - MK * (i + 1) <= 0) {
-						q.offer(0);
+					if (Zombie[i] <= MK * (i + 1)) {
+						dq.offer(0);
 					} else {
-						q.offer(Zombie[i] - MK * (i + 1));
+						dq.offer(Zombie[i] - MK * (i + 1));
 						count += 1;
 					}
-				} else {
-					if (Zombie[i] - MK * (i + 1 - count) <= 0) {
-						q.offer(0);
+				}
+				// 살아있는 좀비가 있는 경우 : 지뢰를 사용한만큼 기관총 사용 횟수가 줄어든다
+				else {
+					if (Zombie[i] <= MK * (i + 1 - count)) {
+						dq.offer(0);
 					} else {
-						q.offer(Zombie[i] - MK * (i + 1 - count));
+						dq.offer(Zombie[i] - MK * (i + 1 - count));
 						count += 1;
 					}
 				}
 			}
+
 		}
+		
+		System.out.println(dq);
 
+		// 범위 밖 나머지 좀비
 		for (int i = ML; i < L; i++) {
-			if (q.peek() == 0) {
-				q.poll();
+			if (dq.peek() == 0) {
+				dq.poll();
 
-				if (Zombie[i] - MK * (ML - count) <= 0) {
-					q.offer(0);
+				if (Zombie[i] <= MK * (ML - count)) {
+					dq.offer(0);
 				} else {
-					q.offer(Zombie[i] - MK * (ML - count));
+					dq.offer(Zombie[i] - MK * (ML - count));
 					count += 1;
 				}
 			} else {
-				q.poll();
+				dq.poll();
 
 				if (C > 0) {
 					C -= 1;
 				} else {
-					ans = false;
+					answer = false;
 					break;
 				}
 
-				if (Zombie[i] - MK * (ML - count) <= 0) {
-					q.offer(0);
+				if (Zombie[i] <= MK * (ML - count)) {
+					dq.offer(0);
 					count -= 1;
 				} else {
-					q.offer(Zombie[i] - MK * (ML - count));
+					dq.offer(Zombie[i] - MK * (ML - count));
 				}
 			}
 		}
 
-		if (ans) {
-			while (!q.isEmpty()) {
-				if (q.peek() == 0) {
-					q.poll();
+		// answer가 아직 true인 경우 큐 비우면서 확인
+		if (answer) {
+			while (!dq.isEmpty()) {
+				if (dq.peek() == 0) {
+					dq.poll();
 				} else {
-					q.poll();
+					dq.poll();
 					count -= 1;
 
 					if (C > 0) {
 						C -= 1;
 					} else {
-						ans = false;
+						answer = false;
 						break;
 					}
 				}
 			}
 		}
 
-		System.out.println(ans ? "YES" : "NO");
+		System.out.println(answer ? "YES" : "NO");
 	}
 
 }
