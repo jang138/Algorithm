@@ -31,12 +31,12 @@ public class Day230120_순열 {
 		N = Integer.parseInt(st.nextToken());
 		R = Integer.parseInt(st.nextToken());
 
-		input = new int[N + 1];
+		input = new int[N];
 		numbers = new int[R]; // 순열 저장 배열
-		selected = new boolean[N + 1]; // 해당 숫자가 선택되었는지 저장하는 배열
+		selected = new boolean[N]; // 해당 숫자가 선택되었는지 저장하는 배열
 
 		st = new StringTokenizer(br.readLine());
-		for (int i = 1; i <= N; i++) {
+		for (int i = 0; i < N; i++) {
 			input[i] = Integer.parseInt(st.nextToken());
 		}
 
@@ -50,12 +50,12 @@ public class Day230120_순열 {
 		}
 
 		// 입력받은 모든 수를 현재 자리에 넣어본다
-		for (int i = 1; i <= N; i++) {
+		for (int i = 0; i < N; i++) {
 			// 기존 자리와 중복 체크
 			if (selected[i] == true)
 				continue;
 
-			numbers[cnt] = i;
+			numbers[cnt] = input[i];
 			selected[i] = true;
 
 			// 다음 자리 수 뽑기
