@@ -6,45 +6,52 @@ import java.util.StringTokenizer;
 
 public class BJ1027_고층건물 {
 
+	static int N;
+	static int[] Building;
+	static int Answer = 0;
+
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer stk = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(br.readLine());
 
-		int N = Integer.parseInt(stk.nextToken());
-		int[] arr = new int[N];
-		int ans = 0;
-		boolean[][] check = new boolean[N][N];
+		Building = new int[N];
+		StringTokenizer st = new StringTokenizer(br.readLine());
 
-		stk = new StringTokenizer(br.readLine());
 		for (int i = 0; i < N; i++) {
-			arr[i] = Integer.parseInt(stk.nextToken());
+			Building[i] = Integer.parseInt(st.nextToken());
 		}
 
 		for (int i = 0; i < N; i++) {
-			long tx = 1;
-			long ty = -1000000001;
-			int cnt = 0;
+			int count = 0;
+			double prev = 0L;
 
-			for (int j = i + 1; j < N; j++) {
-				long dx = j - i;
-				long dy = arr[j] - arr[i];
+			// 빌딩 왼쪽
+			for (int j = i - 1; j >= 0; j--) {
+				double tmp = (double) (Building[j] - Building[i]) / (double) (j - i);
 
-				if (ty * dx < dy * tx) {
-					tx = dx;
-					ty = dy;
-					check[i][j] = true;
-					cnt++;
+				// 기울기가 작아서 보이거나 or 바로 옆 빌딩이라 보이거나
+				if (prev > tmp || j == i - 1) {
+					count++;
+					prev = tmp;
 				}
 			}
 
-			for (int j = 0; j < i; j++) {
-				if (check[j][i])
-					cnt++;
-			}
+			prev = 0;
 
-			ans = Math.max(ans, cnt);
+			// 빌딩 오른쪽
+			for (int j = i + 1; j < N; j++) {
+				double tmp = (double) (Building[j] - Building[i]) / (double) (j - i);
+
+				// 기울기가 커서 보이거나 or 바로 옆 빌딩이라 보이거나
+				if (prev < tmp || j == i + 1) {
+					count++;
+					prev = tmp;
+				}
+			}
+			
+			Answer = Math.max(count, Answer);
 		}
 
-		System.out.println(ans);
+		System.out.println(Answer);
 	}
 }
