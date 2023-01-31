@@ -2,8 +2,6 @@ package Baekjoon.gold;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.StringTokenizer;
 
 /*
@@ -13,20 +11,48 @@ import java.util.StringTokenizer;
 
 public class BJ12907_동물원 {
 
+	static int N, a, check[];
+	static int max;
+	static int twoCnt = 0;
+	static int twice = 1;
+	static boolean flag = true;
+
 	public static void main(String[] args) throws Exception {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int N = Integer.parseInt(br.readLine());
-		Integer[] arr = new Integer[N];
+		N = Integer.parseInt(br.readLine());
+		check = new int[41];
+		max = Integer.MIN_VALUE;
 
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < N; i++) {
-			arr[i] = Integer.parseInt(st.nextToken());
+			a = Integer.parseInt(st.nextToken());
+			max = Math.max(a, max);
+			check[a]++;
 		}
 
-		Arrays.sort(arr, Collections.reverseOrder());
+		for (int i = 0; i < 40; i++) {
+			if (check[i] >= 3 || check[i] < check[i + 1]) {
+				flag = false;
+				break;
+			}
 
-		System.out.println(Arrays.toString(arr));
+			if (check[i] == 2) {
+				twoCnt++;
+			}
+
+			if (check[max] == 1) {
+				twice = 2;
+			}
+		}
+
+		double ans = Math.pow(2, twoCnt) * twice;
+
+		if (flag) {
+			System.out.println((int)ans);
+		} else {
+			System.out.println(0);
+		}
 	}
 
 }
