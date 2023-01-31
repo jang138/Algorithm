@@ -4,6 +4,11 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+/*
+ * https://www.acmicpc.net/problem/1027
+ * 골드4 고층 건물
+ */
+
 public class BJ1027_고층건물 {
 
 	static int N;
