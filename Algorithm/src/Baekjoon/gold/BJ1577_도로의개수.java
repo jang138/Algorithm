@@ -71,13 +71,13 @@ public class BJ1577_도로의개수 {
 			}
 		}
 		
-//		for (int i = 0; i <= N; i++) {
-//			System.out.println();
-//			for (int j = 0; j <= M; j++) {
-//				System.out.printf("%4d", map[i][j]);
-//			}
-//		}
-//		System.out.println(Arrays.deepToString(map));
+		for (int i = 0; i <= N; i++) {
+			System.out.println();
+			for (int j = 0; j <= M; j++) {
+				System.out.printf("%4d", map[i][j]);
+			}
+		}
+		System.out.println(Arrays.deepToString(map));
 		
 		System.out.println(map[N][M]);
 
