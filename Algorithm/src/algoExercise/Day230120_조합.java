@@ -39,7 +39,7 @@ public class Day230120_조합 {
 	}
 
 	static void combination(int cnt, int start) {
-		if(cnt==R) {
+		if (cnt == R) {
 			System.out.println(Arrays.toString(numbers));
 			return;
 		}
