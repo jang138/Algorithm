@@ -3,7 +3,7 @@ package Baekjoon.gold;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 
 /*
  * https://www.acmicpc.net/problem/2036
@@ -31,9 +31,9 @@ public class BJ2036_수열의점수 {
 				one.add(num);
 		}
 
-		// 절대값이 큰 순서로 정렬 (양수는 내림차순, 음수는 오름차순)
-		Collections.sort(posNum, Collections.reverseOrder());
-		Collections.sort(negNum);
+		// 절대값이 큰 순서로 정렬 (양수는 내림차순, 음수는 오름차순)		
+		posNum.sort(Comparator.reverseOrder());
+		negNum.sort(Comparator.naturalOrder());
 
 		// 양수계산
 		long posNumSum = 0;
