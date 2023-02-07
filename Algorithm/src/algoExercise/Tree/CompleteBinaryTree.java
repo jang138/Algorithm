@@ -45,7 +45,7 @@ public class CompleteBinaryTree {
 			int current = queue.poll(); // 탐색 순서에 맞는 인덱스
 
 			System.out.println(nodes[current]);
-			
+
 			// 현재 노드의 자식노드들의 인덱스를 다음에 순서가 되었을 때 탐색되도록 큐에 넣는다
 			// 왼쪽 자식 노드
 			if (current * 2 <= lastIndex)
@@ -55,7 +55,7 @@ public class CompleteBinaryTree {
 				queue.offer(current * 2 + 1);
 		}
 	}
-	
+
 	public void bfs2() {
 		if (isEmpty())
 			return;
@@ -67,18 +67,18 @@ public class CompleteBinaryTree {
 		queue.offer(1);
 
 		while (!queue.isEmpty()) {
-			
+
 			int level = 0;
-			
+
 			System.out.println("level " + level + " : ");
-			
+
 			// 같은 너비의 노드들 모두 탐색, 같은 행에 출력
 			int size = queue.size();
-			while(--size>=0) {
+			while (--size >= 0) {
 				int current = queue.poll(); // 탐색 순서에 맞는 인덱스
-				
+
 				System.out.print(nodes[current] + "\t");
-				
+
 				// 현재 노드의 자식노드들의 인덱스를 다음에 순서가 되었을 때 탐색되도록 큐에 넣는다
 				// 왼쪽 자식 노드
 				if (current * 2 <= lastIndex)
@@ -87,9 +87,67 @@ public class CompleteBinaryTree {
 				if (current * 2 + 1 <= lastIndex)
 					queue.offer(current * 2 + 1);
 			}
-			
+
 			System.out.println();
 			++level;
 		}
+	}
+
+	public void dfsByPreOrder() {
+		System.out.println("dfsByPreOrder");
+		dfsByPreOrder(1);
+		System.out.println();
+	}
+
+	private void dfsByPreOrder(int current) {
+
+		if (current > lastIndex)
+			return;
+
+		// 현재 노드 방문
+		System.out.print(nodes[current] + "\t");
+
+		// 현재 노드의 자식 노드 방문
+		dfsByPreOrder(current * 2);
+		dfsByPreOrder(current * 2 + 1);
+	}
+	
+	public void dfsByInOrder() {
+		System.out.println("dfsByInOrder");
+		dfsByInOrder(1);
+		System.out.println();
+	}
+
+	private void dfsByInOrder(int current) {
+
+		if (current > lastIndex)
+			return;
+
+		// 현재 노드의 자식 노드 방문
+		dfsByInOrder(current * 2);
+
+		// 현재 노드 방문
+		System.out.print(nodes[current] + "\t");
+
+		dfsByInOrder(current * 2 + 1);
+	}
+	
+	public void dfsByPostOrder() {
+		System.out.println("dfsByPostOrder");
+		dfsByPostOrder(1);
+		System.out.println();
+	}
+
+	private void dfsByPostOrder(int current) {
+
+		if (current > lastIndex)
+			return;
+
+		// 현재 노드의 자식 노드 방문
+		dfsByPostOrder(current * 2);
+		dfsByPostOrder(current * 2 + 1);
+
+		// 현재 노드 방문
+		System.out.print(nodes[current] + "\t");
 	}
 }

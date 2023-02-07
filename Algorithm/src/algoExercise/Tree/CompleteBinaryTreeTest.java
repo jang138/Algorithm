@@ -13,6 +13,10 @@ public class CompleteBinaryTreeTest {
 		
 		tree.bfs();
 		tree.bfs2();
+		
+		tree.dfsByPreOrder();
+		tree.dfsByInOrder();
+		tree.dfsByPostOrder();
 	}
 
 }
