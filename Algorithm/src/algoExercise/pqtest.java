@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Random;
 
-public class test {
+public class pqtest {
 
 	public static void main(String[] args) {
 		PriorityQueue<Student> pq1 = new PriorityQueue<>();
