@@ -10,11 +10,11 @@ import java.io.InputStreamReader;
 
 public class BJ17352_여러분의다리가되어드리겠습니다 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int N = Integer.parseInt(br.readLine());
 		
-		
-
+		parent[] = 
 	}
 
 }
