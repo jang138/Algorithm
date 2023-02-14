@@ -2,6 +2,7 @@ package Baekjoon.gold;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /*
@@ -27,6 +28,9 @@ public class BJ17352_여러분의다리가되어드리겠습니다 {
 			int b = Integer.parseInt(st.nextToken());
 			union(a, b);
 		}
+
+		System.out.println(Arrays.toString(parent));
+
 
 		for (int i = 2; i <= N; i++) {
 			if (!isSameParent(1, i)) {
