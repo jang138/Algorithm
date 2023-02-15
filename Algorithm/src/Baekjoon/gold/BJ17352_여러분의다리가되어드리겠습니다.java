@@ -31,9 +31,8 @@ public class BJ17352_여러분의다리가되어드리겠습니다 {
 
 		System.out.println(Arrays.toString(parent));
 
-
 		for (int i = 2; i <= N; i++) {
-			if (!isSameParent(1, i)) {
+			if (find(1) != find(i)) {
 				System.out.print(1 + " " + i);
 				return;
 			}
@@ -57,9 +56,4 @@ public class BJ17352_여러분의다리가되어드리겠습니다 {
 		else
 			parent[a] = b;
 	}
-
-	static boolean isSameParent(int a, int b) {
-		return find(a) == find(b);
-	}
-
 }

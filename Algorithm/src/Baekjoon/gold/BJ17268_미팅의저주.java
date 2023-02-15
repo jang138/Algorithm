@@ -16,7 +16,7 @@ public class BJ17268_미팅의저주 {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 		N = N / 2;
-		int dp[] = new int[N + 1];
+		long dp[] = new long[N + 1];
 		dp[0] = 1;
 
 		// 점화식: Cn+1 = C0Cn + C1Cn-1 + C2Cn-2 + ... + CnC0
