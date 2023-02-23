@@ -14,8 +14,8 @@ public class BJ17828_문자열화폐 {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int N = Integer.parseInt(st.nextToken());
-		int X = Integer.parseInt(st.nextToken());
+		int N = Integer.parseInt(st.nextToken()); // 자리
+		int X = Integer.parseInt(st.nextToken()); // 숫자
 
 		if (N * 26 < X || X < N) {
 			System.out.println("!");
