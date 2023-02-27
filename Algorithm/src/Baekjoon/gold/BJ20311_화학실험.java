@@ -6,6 +6,11 @@ import java.util.PriorityQueue;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
+/*
+ * https://www.acmicpc.net/problem/20311
+ * 골드5 화학 실험
+ */
+
 public class BJ20311_화학실험 {
 
 	static class Node implements Comparable<Node> {
