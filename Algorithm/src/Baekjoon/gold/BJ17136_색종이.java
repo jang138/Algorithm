@@ -68,13 +68,13 @@ public class BJ17136_색종이 {
 		}
 	}
 
-	static boolean check(int x, int y, int size) {
+	static boolean check(int x, int y, int N) {
 		// 색종이가 크기를 넘어간 경우
-		if (x + size > 10 || y + size > 10)
+		if (x + N > 10 || y + N > 10)
 			return false;
 		
-		for (int i = 0; i < size; i++) {
-			for (int j = 0; j < size; j++) {
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
 				// 색종이로 덮은 구간에 0이 있을 때
 				if (map[x + i][y + j] != 1)
 					return false;
@@ -85,9 +85,9 @@ public class BJ17136_색종이 {
 	}
 
 	// 일정 구간을 0 또는 1로 바꾸는 함수
-	static void change(int x, int y, int size, int state) {
-		for (int i = 0; i < size; i++) {
-			for (int j = 0; j < size; j++) {
+	static void change(int x, int y, int N, int state) {
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
 				map[x + i][y + j] = state;
 			}
 		}
