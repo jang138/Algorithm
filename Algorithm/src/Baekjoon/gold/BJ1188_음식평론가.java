@@ -18,10 +18,12 @@ public class BJ1188_음식평론가 {
 		int M = Integer.parseInt(st.nextToken());
 		int ans = 0;
 
+		// N과 M의 최대공약수
 		int gcd = GCD(N, M);
 		N = N / gcd;
 		M = M / gcd;
 
+		// 소시지를 자를 필요 없는 경우
 		if (N >= M && N % M == 0) {
 			System.out.println(0);
 		} else {
@@ -32,6 +34,7 @@ public class BJ1188_음식평론가 {
 
 	}
 
+	// 유클리드 호제법
 	static int GCD(int a, int b) {
 		if (a % b == 0) {
 			return b;
