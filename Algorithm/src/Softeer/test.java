@@ -8,9 +8,8 @@ public class test {
 		Scanner sc = new Scanner(System.in);
 
 		char ch = sc.nextLine().charAt(0);
-		int num = (int) ch - 64;
-		System.out.println(num);
-		
+
+		System.out.println( ch == 'N' || ch == 'n' ? "Naver D2" : "Naver Whale" );
 		
 	}
 }
