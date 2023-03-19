@@ -36,6 +36,7 @@ public class BJ15649_N과M1 {
 		}
  
 		for (int i = 0; i < N; i++) {
+			System.out.println("visit : " + i + " depth : " + depth + " " + visit[i]);
 			if (!visit[i]) {
 				visit[i] = true;
 				arr[depth] = i + 1;
@@ -43,6 +44,8 @@ public class BJ15649_N과M1 {
 				visit[i] = false;
 			}
 		}
+		
+		System.out.println("====");
 	}
 
 }
