@@ -1,15 +1,16 @@
 package Softeer;
 
-import java.util.Scanner;
+import java.util.Stack;
 
 public class test {
-	public static void main(String args[]) throws Exception {
 
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
 
-		char ch = sc.nextLine().charAt(0);
-
-		System.out.println( ch == 'N' || ch == 'n' ? "Naver D2" : "Naver Whale" );
+		Stack<Integer> stack = new Stack<>();
+		stack.push(1);
+		System.out.println(stack.pop());
 		
+
 	}
+
 }
