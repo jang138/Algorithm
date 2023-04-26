@@ -2,6 +2,7 @@ package Baekjoon.silver;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 /*
  * https://www.acmicpc.net/problem/2156
@@ -37,7 +38,8 @@ public class BJ2156_포도주시식 {
             dp[i] = Math.max(dp[i - 1], Math.max(dp[i - 2] + input[i], dp[i - 3] + input[i-1] + input[i]));
 		}
 
-        
+    	System.out.println(Arrays.toString(input));
+        System.out.println(Arrays.toString(dp));
         System.out.println(dp[n-1]);
 
 	}
