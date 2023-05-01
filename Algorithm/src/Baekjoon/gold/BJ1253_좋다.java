@@ -26,29 +26,29 @@ public class BJ1253_좋다 {
 		Arrays.sort(arr);
 
 		for (int i = 0; i < N; i++) {
+			int target = arr[i];
 			int left = 0;
 			int right = N - 1;
-			int target = arr[i];
 
-			while (true) {
-				// 현재 숫자와 같으면 안되니까 바로 통과
-				if (left == i)
+			while (left < right) {
+				// target은 서로 다른 두 수의 합이어야 한다
+				if (arr[left] + arr[right] == target) {
+					if (left != i && right != i) {
+						ans++;
+						break;
+					} else if (left == i) {
+						left++;
+//						System.out.println(left);
+//						System.out.println("left 증가");
+					} else {
+						right--;
+//						System.out.println(right);
+//						System.out.println("right 감소");
+					}
+				} else if (arr[left] + arr[right] < target) {
 					left++;
-				else if (right == i)
+				} else {
 					right--;
-
-				if (left >= right) // 탐색 실패
-					break;
-
-				int sum = arr[left] + arr[right];
-
-				if (sum > target)
-					right--;
-				else if (sum < target)
-					left++;
-				else {
-					ans++;
-					break;
 				}
 			}
 		}
