@@ -1,6 +1,5 @@
 package Baekjoon.gold;
 
-import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Stack;
@@ -25,23 +24,29 @@ public class BJ17298_오큰수 {
 			a[i] = Integer.parseInt(st.nextToken());
 		}
 		
-		Stack<Integer> s = new Stack<>();
+		Stack<Integer> stack = new Stack<>();
 		int[] ans = new int[n];
-		for (int i = n - 1; i >= 0; i--) {
-			while (!s.isEmpty() && s.peek() <= a[i]) {
-				s.pop();
+		
+		for (int i = 0; i < n; i++) {
+			// 스택이 비어있지 않고, 스택의 top의 값이 현재 값보다 작은 경우 => 오큰수!
+			while(!stack.isEmpty() && a[stack.peek()] < a[i]) {
+				ans[stack.pop()] = a[i];
 			}
-			if (s.isEmpty()) {
-				ans[i] = -1;
-			} else {
-				ans[i] = s.peek();
-			}
-			s.push(a[i]);
-		}
-		for (int k : ans) {
-			sb.append(k + " ");
+			
+			stack.push(i);
 		}
 		
-		System.out.print(sb.toString());
+		// 반복문 후에도 스택에 값이 남아있음 => 오큰수가 없다 -1 출력
+		while(!stack.isEmpty()) {
+			ans[stack.pop()] = -1;
+		}
+		
+		for(int i = 0; i < n; i++) {
+			sb.append(ans[i]).append(" ");
+		}
+		
+		System.out.println(sb.toString());
+		
 	}
 }
+
