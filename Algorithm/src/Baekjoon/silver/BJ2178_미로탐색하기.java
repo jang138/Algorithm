@@ -2,6 +2,8 @@ package Baekjoon.silver;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 /*
@@ -34,10 +36,32 @@ public class BJ2178_미로탐색하기 {
 			}
 		}
 
+		bfs(0, 0);
+		System.out.println(A[N - 1][M - 1]);
+
 	}
-	
+
 	private static void bfs(int i, int j) {
-		Queue<int[]>
+		Queue<int[]> queue = new LinkedList<>();
+		queue.add(new int[] { i, j });
+
+		while (!queue.isEmpty()) {
+			int node[] = queue.poll();
+			visit[i][j] = true;
+
+			for (int k = 0; k < 4; k++) {
+				int x = node[0] + dx[k];
+				int y = node[1] + dy[k];
+
+				if (x >= 0 && y >= 0 && x < N && y < M) {
+					if (A[x][y] != 0 && !visit[x][y]) {
+						visit[x][y] = true;
+						A[x][y] = A[node[0]][node[1]] + 1;
+						queue.add(new int[] { x, y });
+					}
+				}
+			}
+		}
 	}
 
 }
