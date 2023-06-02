@@ -1,15 +1,5 @@
 package test1;
 
-/*
- * N 일수, M 트랙 수
-입력
-5 4
-abaa
-baab
-bbab
-aaaa
-bbbb
- */
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
