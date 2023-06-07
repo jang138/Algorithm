@@ -6,6 +6,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+/*
+ * https://www.acmicpc.net/problem/2606
+ * 실버3 바이러스
+ */
+
 public class BJ2606_바이러스 {
 
 	static int C, N;
