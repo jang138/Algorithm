@@ -46,7 +46,7 @@ public class BJ2644_촌수계산_dfs {
 
 	private static void dfs(int num) {
 		if (num == B) {
-			return;
+			return;	
 		}
 
 		for (int i = 1; i <= N; i++) {
