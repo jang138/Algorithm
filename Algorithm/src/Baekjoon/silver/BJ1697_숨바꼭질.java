@@ -15,27 +15,46 @@ public class BJ1697_숨바꼭질 {
 		Scanner sc = new Scanner(System.in);
 		int start = sc.nextInt();
 		int end = sc.nextInt();
+		
+		if(start == end) {
+			System.out.println(0);
+			return;
+		}
 
 		int ans = 0;
-		boolean check[] = new boolean[100001];
-		Queue<int[]> queue = new LinkedList<>();
+		int check[] = new int[100001];
+		Queue<Integer> queue = new LinkedList<>();
 
-		queue.add(new int[] { start, 0 });
-		check[start] = true;
+		queue.add(start);
+		check[start] = 1;
 
 		while (!queue.isEmpty()) {
-			int now[] = queue.poll();
+			int now = queue.poll();
 
-			if (now[0] == end) {
-				ans = now[1];
-				break;
+			for (int i = 0; i < 3; i++) {
+				int next;
+
+				if (i == 0) {
+					next = now * 2;
+				} else if (i == 1) {
+					next = now + 1;
+				} else {
+					next = now - 1;
+				}
+
+				if (next == end) {
+					System.out.println(check[now]);
+					return;
+				}
+
+				if (next >= 0 && next < check.length && check[next] == 0) {
+					queue.add(next);
+					check[next] = check[now] + 1;
+				}
 			}
-
-
 
 		}
 
-		System.out.println(ans);
 	}
 
 }
