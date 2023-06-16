@@ -1,68 +1,25 @@
 package test1;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class test1 {
 
-	static int dx[] = { 1, 0, -1, 0 };
-	static int dy[] = { 0, 1, 0, -1 };
-	static int map[][];
-	static boolean visit[][];
-	static int N, M;
-
 	public static void main(String[] args) throws Exception {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
+		String str = "hi my name is david kim";
+		StringTokenizer st = new StringTokenizer(str);
 
-		N = Integer.parseInt(st.nextToken());
-		M = Integer.parseInt(st.nextToken());
-		map = new int[N][M];
-		visit = new boolean[N][M];
+		String strArr[] = new String[st.countTokens()];
+		String strSP[] = str.split(" ");
 
-		for (int i = 0; i < N; i++) {
-			String line = br.readLine();
-
-			for (int j = 0; j < M; j++) {
-				map[i][j] = line.charAt(j) - '0';
-				// System.out.print(map[i][j]);
-			}
-			// System.out.println();
+		int index = 0;
+		while (st.countTokens() > 0) {
+			strArr[index] = st.nextToken();
+			index++;
 		}
 
-		bfs(0, 0);
-		System.out.println(map[N - 1][M - 1]);
-	}
-
-	static void bfs(int i, int j) {
-		Queue<int[]> queue = new LinkedList<>();
-		queue.add(new int[] { i, j });
-
-		while (!queue.isEmpty()) {
-			int now[] = queue.poll();
-			visit[i][j] = true;
-
-			for (int d = 0; d < 4; d++) {
-				int x = now[0] + dx[d];
-				int y = now[1] + dy[d];
-
-				if (x < 0 || y < 0 || x >= N || y >= M) {
-					continue;
-				}
-
-				if (visit[x][y] || map[x][y] == 0) {
-					continue;
-				}
-
-				queue.add(new int[] { x, y });
-				map[x][y] = map[now[0]][now[1]] + 1;
-				visit[x][y] = true;
-			}
-		}
-
+		System.out.println(Arrays.toString(strArr));
+		System.out.println(Arrays.toString(strSP));
 	}
 
 }
