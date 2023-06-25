@@ -1,4 +1,4 @@
-package Programmers;
+package Programmers.LV3;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 
 /*
  * https://school.programmers.co.kr/learn/courses/30/lessons/64062
- * 징검다리 건너기
+ * LV3 징검다리 건너기
  * 
  * input
  * 10 3
