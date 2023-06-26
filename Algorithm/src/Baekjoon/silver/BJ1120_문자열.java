@@ -13,28 +13,23 @@ public class BJ1120_문자열 {
 		String A = st.nextToken();
 		String B = st.nextToken();
 
-		int cnt = 0;
+		int result = A.length();
 
-		if (A.length() == B.length()) {
-			for (int i = 0; i < A.length(); i++) {
-				if (A.charAt(i) == B.charAt(i)) {
-					cnt++;
+		for (int i = 0; i <= B.length() - A.length(); i++) {
+			int tmp = 0;
+
+			for (int j = 0; j < A.length(); j++) {
+
+				if (A.charAt(j) != B.charAt(j + i)) {
+					tmp++;
 				}
 			}
 
-			System.out.println(cnt);
-			
-		} else {
-			for (int i = 0; i < A.length(); i++) {
-				for (int j = i; j < A.length(); j++) {
-					String str = A.substring(i, j);
-					
-					if(str.contains(B)) {
-						
-					}
-				}
-			}
+			result = Math.min(result, tmp);
 		}
+
+		System.out.println(result);
+
 	}
 
 }
