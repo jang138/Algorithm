@@ -1,36 +1,18 @@
 package test1;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class test1 {
-
-	static class Node {
-		int x;
-		int y;
-
-		public Node(int x, int y) {
-			this.x = x;
-			this.y = y;
-		}
-	}
-
 	public static void main(String[] args) throws Exception {
-		Queue<Node> queue = new LinkedList<>();
-		Node node = new Node(1, 1);
-		queue.add(node);
-
-		node = new Node(2, 2);
-		queue.add(node);
-
-		while (!queue.isEmpty()) {
-			Node now = queue.poll();
-			System.out.println(now.x + " " + now.y);
-
-		}
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		long A = Long.parseLong(st.nextToken());
+		long B = Long.parseLong(st.nextToken());
+		long C = Long.parseLong(st.nextToken());
 		
-		
-		ArrayList<ArrayList<Node>> list = new ArrayList<>();
+		long sum = A + B + C;
+		System.out.println(sum);
 	}
 }
