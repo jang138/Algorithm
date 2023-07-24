@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
  * 브론즈5 A+B - 5
  */
 
-public class BJ10951_A더하기B5 {
+public class BJ10952_A더하기B5 {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
