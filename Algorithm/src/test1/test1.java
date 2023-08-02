@@ -1,26 +1,15 @@
 package test1;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class test1 {
-	public static void main(String[] args) throws Exception {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		int x = Integer.parseInt(st.nextToken());
-		int y = Integer.parseInt(st.nextToken());
-		int daySum = 0;
-		int month[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-		String dayOfWeek[] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
 
-		for (int i = 0; i < x; i++) {
-			daySum += month[i];
+		for (int i = 0; i < 2 * N - 1; i++) {
+			System.out.println(i);
 		}
-		
-		daySum += y;
-
-		System.out.println(dayOfWeek[daySum % 7]);
 	}
 
 }
