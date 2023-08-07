@@ -27,7 +27,7 @@ public class BJ1260_DFS와BFS2 {
 		int N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
 		int start = Integer.parseInt(st.nextToken());
-		A = new ArrayList[N + 1];
+//		A = new ArrayList[N + 1];
 		B = new ArrayList<>();
 
 		for (int i = 0; i <= N; i++) {
