@@ -15,8 +15,8 @@ public class BJ1697_숨바꼭질 {
 		Scanner sc = new Scanner(System.in);
 		int start = sc.nextInt();
 		int end = sc.nextInt();
-		
-		if(start == end) {
+
+		if (start == end) {
 			System.out.println(0);
 			return;
 		}

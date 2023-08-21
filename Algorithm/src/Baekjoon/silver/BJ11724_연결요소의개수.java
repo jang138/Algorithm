@@ -57,6 +57,7 @@ public class BJ11724_연결요소의개수 {
 		int cnt = 0;
 
 		for (int i = 1; i <= N; i++) {
+//			System.out.println(visit[i]);
 			if (!visit[i]) {
 				cnt++;
 				dfs(i);
