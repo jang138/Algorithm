@@ -13,26 +13,22 @@ import java.util.StringTokenizer;
  * 실버2 DFS와 BFS
  */
 
-public class BJ1260_DFS와BFS2 {
+public class BJ1260_DFS와BFS3 {
 
+	static int N, M, V;
 	static boolean visit[];
-	static ArrayList<Integer>[] A;
-	static ArrayList<ArrayList<Integer>> B;
+	static ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
 
 	public static void main(String[] args) throws Exception {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-
-		int N = Integer.parseInt(st.nextToken());
-		int M = Integer.parseInt(st.nextToken());
-		int start = Integer.parseInt(st.nextToken());
-		A = new ArrayList[N + 1];
-		B = new ArrayList<>();
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		V = Integer.parseInt(st.nextToken());
 
 		for (int i = 0; i <= N; i++) {
-			A[i] = new ArrayList<Integer>();
-			B.add(new ArrayList<>());
+			graph.add(new ArrayList<>());
 		}
 
 		for (int i = 0; i < M; i++) {
@@ -40,41 +36,23 @@ public class BJ1260_DFS와BFS2 {
 			int s = Integer.parseInt(st.nextToken());
 			int e = Integer.parseInt(st.nextToken());
 
-			A[s].add(e);
-			A[e].add(s);
-			
-			B.get(s).add(e);
-			B.get(e).add(s);
+			graph.get(s).add(e);
+			graph.get(e).add(s);
 		}
 
 		for (int i = 1; i <= N; i++) {
-			Collections.sort(A[i]);
-			Collections.sort(B.get(i));
+			Collections.sort(graph.get(i));
 		}
 
-		for (int i = 1; i <= N; i++) {
-			System.out.print(i + " => ");
-			for (int j : A[i]) {
-				System.out.print(j + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
-		
-		for (int i = 1; i <= N; i++) {
-			System.out.print(i + " => ");
-			for (int j : B.get(i)) {
-				System.out.print(j + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
-		
+		/*
+		 * for (int i = 0; i <= N; i++) { System.out.println(graph.get(i)); }
+		 */
+
 		visit = new boolean[N + 1];
-		dfs(start);
+		dfs(V);
 		System.out.println();
 		visit = new boolean[N + 1];
-		bfs(start);
+		bfs(V);
 
 	}
 
@@ -82,13 +60,7 @@ public class BJ1260_DFS와BFS2 {
 		System.out.print(n + " ");
 		visit[n] = true;
 
-//		for (int i : A[n]) {
-//			if (!visit[i]) {
-//				dfs(i);
-//			}
-//		}
-		
-		for (int i : B.get(n)) {
+		for (int i : graph.get(n)) {
 			if (!visit[i]) {
 				dfs(i);
 			}
@@ -104,20 +76,14 @@ public class BJ1260_DFS와BFS2 {
 			int node = queue.poll();
 			System.out.print(node + " ");
 
-//			for (int i : A[node]) {
-//				if (!visit[i]) {
-//					visit[i] = true;
-//					queue.add(i);
-//				}
-//			}
-			
-			for (int i : B.get(node)) {
+			for (int i : graph.get(node)) {
 				if (!visit[i]) {
 					visit[i] = true;
 					queue.add(i);
 				}
 			}
 		}
+
 	}
 
 }
