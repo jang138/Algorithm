@@ -1,14 +1,12 @@
 package test1;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 
 public class test1 {
-	
 
 	public static void main(String[] args) {
-		String[] ar = {"aaa", "aa", "bb"};
-		
-		int max = 0;
-		
+		int n = 3;
+
 	}
 }
