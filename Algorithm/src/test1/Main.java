@@ -2,8 +2,7 @@ package test1;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -11,45 +10,47 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
+		StringBuilder sb = new StringBuilder();
 
 		int N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
-		int T = Integer.parseInt(br.readLine());
+		long S[] = new long[N + 1];
+		long remainArray[] = new long[M];
+		long cnt = 0;
 
-		ArrayList<Integer> row = new ArrayList<>();
-		ArrayList<Integer> column = new ArrayList<>();
+		st = new StringTokenizer(br.readLine());
+		for (int i = 1; i <= N; i++) {
+			S[i] = S[i - 1] + Integer.parseInt(st.nextToken());
+		}
 
-		for (int t = 0; t < T; t++) {
-			st = new StringTokenizer(br.readLine());
-			int type = Integer.parseInt(st.nextToken());
-			int a = Integer.parseInt(st.nextToken());
+//		System.out.println(Arrays.toString(S));
 
-			if (type == 0) {
-				row.add(a);
-			} else if (type == 1) {
-				column.add(a);
+		/*
+		 * S[i] % M 과 S[j] % M 의 값이 같다면 (S[i] - S[j]) % M = 0이다. S[i] % M 으로 배열을 바꾸어준다.
+		 * 이때 0이 되는 것은 처음부터 i번째 배열까지 합이 0이라는 의미이다.
+		 */
+
+		for (int i = 1; i <= N; i++) {
+			int remain = (int) (S[i] % M);
+			remainArray[remain]++;
+
+			if (remain == 0)
+				cnt++;
+		}
+
+		/*
+		 * 각 나머지에 해당하는 개수를 remainArray 배열에 저장한다. 이때, 개수가 2 이상이라면 전체 개수에서 2개를 뽑는 것은 누적합
+		 * 배열에서 i와 j를 선택해 차이를 구하는 것과 같다. nC2 = n * (n-1) / 2
+		 */
+
+		for (int remain = 0; remain < M; remain++) {
+			if (remainArray[remain] > 1) {
+				cnt += (remainArray[remain] * (remainArray[remain] - 1) / 2);
 			}
 		}
 
-		row.add(0);
-		row.add(M);
-		column.add(0);
-		column.add(N);
-
-		Collections.sort(row);
-		Collections.sort(column);
-
-		int maxRow = 0;
-		for (int i = 1; i < row.size(); i++) {
-			maxRow = Math.max(maxRow, row.get(i) - row.get(i - 1));
-		}
-
-		int maxColumn = 0;
-		for (int i = 1; i < column.size(); i++) {
-			maxColumn = Math.max(maxColumn, column.get(i) - column.get(i - 1));
-		}
-
-		System.out.println(maxRow * maxColumn);
+//		System.out.println(Arrays.toString(remainArray));
+		System.out.println(cnt);
 
 	}
 
