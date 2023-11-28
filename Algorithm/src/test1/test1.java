@@ -1,12 +1,15 @@
 package test1;
 
-import java.util.Collections;
-import java.util.HashMap;
-
 public class test1 {
 
 	public static void main(String[] args) {
-		int n = 3;
 
+		Country object = new Country();
+		Country korea = new Country("seoul", 50000000);
+		Country japan = new Country("tokyo", 120000000);
+		korea.hi();
+
+		System.out.println(korea.population + japan.population);
 	}
+
 }

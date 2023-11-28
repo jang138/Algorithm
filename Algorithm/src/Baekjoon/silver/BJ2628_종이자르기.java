@@ -6,9 +6,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
+/*
+ * https://www.acmicpc.net/problem/2628
+ * 실버5 종이자르기
+ */
+
 public class BJ2628_종이자르기 {
 
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 
