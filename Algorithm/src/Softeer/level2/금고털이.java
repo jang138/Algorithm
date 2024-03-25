@@ -16,47 +16,46 @@ import java.util.StringTokenizer;
 */
 
 public class 금고털이 {
-
-	static class Jewel {
+	public static class Jewel {
 		int weight;
-		int price;
+		int value;
 
-		public Jewel(int weight, int price) {
+		public Jewel(int weight, int value) {
 			this.weight = weight;
-			this.price = price;
+			this.value = value;
+		}
+
+		public String toString() {
+			return weight + " " + value;
 		}
 	}
 
-	public static void main(String args[]) throws Exception {
+	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int W = Integer.parseInt(st.nextToken());
 		int T = Integer.parseInt(st.nextToken());
 
-		PriorityQueue<Jewel> pq = new PriorityQueue<>((o1, o2) -> {
-			return o2.price - o1.price;
-		});
+		PriorityQueue<Jewel> pq = new PriorityQueue<>((o1, o2) -> (o2.value - o1.value));
 
-		for (int t = 1; t <= T; t++) {
+		for (int t = 0; t < T; t++) {
 			st = new StringTokenizer(br.readLine());
-			int weight = Integer.parseInt(st.nextToken());
-			int price = Integer.parseInt(st.nextToken());
-			pq.offer(new Jewel(weight, price));
+			pq.add(new Jewel(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
 		}
 
-		int answer = 0;
-
+		int ans = 0;
 		while (!pq.isEmpty()) {
-			Jewel jewel = pq.poll();
-			if (W < jewel.weight) {
-				answer = answer + W * jewel.price;
-				break;
+			Jewel j = pq.poll();
+
+			if (W > j.weight) {
+				ans += j.weight * j.value;
+				W -= j.weight;
 			} else {
-				answer = answer + jewel.weight * jewel.price;
-				W = W - jewel.weight;
+				ans += W * j.value;
+				break;
 			}
 		}
 
-		System.out.print(answer + "");
+		System.out.println(ans);
 	}
 }

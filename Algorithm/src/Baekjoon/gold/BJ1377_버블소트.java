@@ -39,6 +39,9 @@ public class BJ1377_버블소트 {
 			return o1.value - o2.value;
 		});
 		
+//		Collections.sort(arrayList, (o1, o2) -> (o1.value - o2.value));
+
+		
 //		System.out.println(arrayList);
 		
 		int max = Integer.MIN_VALUE;

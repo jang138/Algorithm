@@ -39,7 +39,7 @@ public class BJ1806_부분합 {
 				sum += array[end++];
 			}
 
-			System.out.println(start + " " + end + " " + sum + " " + length);
+//			System.out.println(start + " " + end + " " + sum + " " + length);
 
 		}
 
